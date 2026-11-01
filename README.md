@@ -1,11 +1,11 @@
 <div align="center">
-<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Learn"/>
+<img src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&center=true&vCenter=true&width=600&height=80&lines=Welcome-to-Learn"/>
 </div>
 
 <div align="center">
-<a href="https://apt.izzysoft.de/packages/vdrs.sappu.lafk.learn"> <img src='readme/IzzyOnDroid.png' width='150'/> </a> 
-<a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/GitHub.png' width='150'/> </a> 
-  <a href='https://indusapp.store/yb8ybhhm'><img alt='Get it on Indus Appstore' src='https://docstore.indusappstore.com/public/external/developerdashboard-static/badge-black-background-english.png' width='135'/></a>
+  <a href="https://apt.izzysoft.de/packages/vdrs.sappu.lafk.learn"><img src='readme/IzzyOnDroid.png' height='45'/></a>
+  <a href="https://github.com/VaibhavCodeClub/learn/releases"><img src='readme/GitHub.png' height='45'/></a>
+  <a href='https://indusapp.store/yb8ybhhm'><img src='readme/IndusAppstore.png' height='45'/></a>
 </div>
 <br>
 
@@ -123,7 +123,7 @@ Please ensure you have Flutter installed. If not, you can follow the instruction
 Navigate to the project directory using the terminal.
 
 Run the following command to fetch the dependencies:
-```bash 
+```bash
 flutter pub get
 # Or if using FVM:
 fvm flutter pub get
@@ -166,10 +166,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Don't forget to star ⭐ the repository if you find it useful!
 <!-- Hits since 10 May 2024 00:20 IST -->
 ![visitors](https://hits.sh/github.com/sapatevaibhav.learn/hits.svg)
-![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/vdrs.sappu.lafk.learn) &nbsp; 
-[![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/) &nbsp; 
+[![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/vdrs.sappu.lafk.learn)](https://apt.izzysoft.de/packages/vdrs.sappu.lafk.learn) &nbsp;
+[![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/) &nbsp;
 ![Release](https://img.shields.io/github/v/release/VaibhavCodeClub/learn) &nbsp; ![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
-&nbsp; 
+&nbsp;
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg) &nbsp;
 <a href="https://github.com/VaibhavCodeClub/learn"><img src="https://sloc.xyz/github/VaibhavCodeClub/learn" alt="Lines of Code"/></a>
 &nbsp;
@@ -181,7 +181,7 @@ Don't forget to star ⭐ the repository if you find it useful!
 ![GitHub last commit](https://img.shields.io/github/last-commit/VaibhavCodeClub/learn?color=red&style=plastic)
 &nbsp;
 ![Repo. Size](https://img.shields.io/github/repo-size/VaibhavCodeClub/learn?color=white)
-&nbsp;  
+&nbsp;
 <a href="https://github.com/VaibhavCodeClub/learn/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?v=103"></a>
 &nbsp;
 <a href="https://github.com/VaibhavCodeClub/learn/issues"><img src="https://img.shields.io/github/issues/VaibhavCodeClub/learn?color=0059b3"></a>
@@ -192,4 +192,3 @@ Don't forget to star ⭐ the repository if you find it useful!
 &nbsp;
 <a href="https://github.com/VaibhavCodeClub/learn/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed-raw/VaibhavCodeClub/learn?color=0059b3"></a>
 &nbsp;
-
