@@ -8,7 +8,6 @@
 .buildlog/
 .history
 .svn/
-pubspec.lock
 migrate_working_dir/
 
 # IntelliJ related
@@ -31,7 +30,11 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/pubspec.lock
+releases/
+
+# FVM Version Manager
+.fvm/flutter_sdk
+.fvm/versions
 
 # Symbolication related
 app.*.symbols
