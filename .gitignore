@@ -30,6 +30,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+releases/
 
 # FVM Version Manager
 .fvm/flutter_sdk
