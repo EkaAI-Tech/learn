@@ -41,6 +41,13 @@ android {
         includeInBundle = false
     }
 
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+            keepDebugSymbols += "**/*.so"
+        }
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }

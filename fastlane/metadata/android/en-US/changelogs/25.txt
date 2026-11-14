@@ -1,0 +1,5 @@
+1.2.3
+- Fix native library symbols configuration for identical RBs.
+- Updated target SDK to Android 16 (API 36).
+- Optimized asset sizes for faster downloads and reduced app footprint.
+- Bug fixes and stability improvements.
