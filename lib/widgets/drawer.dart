@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 // ignore: unused_import
 import 'package:learn/utils/assets_path.dart';
@@ -25,14 +26,14 @@ class MyDrawer extends StatelessWidget {
                     decoration:
                         BoxDecoration(color: Theme.of(context).canvasColor),
                     accountName: Text(
-                      "Learning App for kids",
+                      'drawer.app_name'.tr(),
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     accountEmail: Text(
-                      "Made by sapatevaibhav",
+                      'drawer.made_by'.tr(namedArgs: {'name': 'sapatevaibhav'}),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     currentAccountPicture: const CircleAvatar(
@@ -42,7 +43,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.home,
-                  title: "Home",
+                  title: 'titles.home'.tr(),
                   onTap: () {
                     Navigator.pushNamed(
                         context, AllRoutesConstant.mainhomeRoute);
@@ -51,7 +52,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.text_fields,
-                  title: "A - Z",
+                  title: 'titles.atoz'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.atozRoute);
                   },
@@ -59,7 +60,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.pest_control_rodent_outlined,
-                  title: "Animals",
+                  title: 'titles.animals'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.animalRoute);
                   },
@@ -67,7 +68,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.egg,
-                  title: "Birds",
+                  title: 'titles.birds'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.birdsRoute);
                   },
@@ -75,7 +76,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.cloud,
-                  title: "Seasons",
+                  title: 'modules.Seasons.name'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.seasonRoute);
                   },
@@ -83,7 +84,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.pentagon_outlined,
-                  title: "Shapes",
+                  title: 'titles.shapes'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.shapesRoute);
                   },
@@ -91,7 +92,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.back_hand_rounded,
-                  title: "Body parts",
+                  title: 'titles.body'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.partsRoute);
                   },
@@ -99,7 +100,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.work,
-                  title: "Occupations",
+                  title: 'titles.occupations'.tr(),
                   onTap: () {
                     Navigator.pushNamed(
                         context, AllRoutesConstant.occupationRoute);
@@ -108,7 +109,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.sunny,
-                  title: "Solar System",
+                  title: 'titles.solar'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.solarRoute);
                   },
@@ -116,7 +117,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.palette,
-                  title: "Colours",
+                  title: 'titles.colours'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.colourRoute);
                   },
@@ -124,7 +125,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.local_florist,
-                  title: "Flowers",
+                  title: 'titles.flowers'.tr(),
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.flowerRoute);
                   },
@@ -132,7 +133,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 _buildListTile(
                   icon: Icons.edit,
-                  title: "Drawing Board",
+                  title: 'titles.drawing'.tr(),
                   onTap: () {
                     Navigator.pushNamed(
                         context, AllRoutesConstant.drawingboardRoute);

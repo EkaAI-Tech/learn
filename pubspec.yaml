@@ -49,6 +49,7 @@ dependencies:
   font_awesome_flutter: 10.1.0
   shared_preferences: 2.2.3
   provider: 6.1.2
+  easy_localization: 3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +91,7 @@ flutter:
     - assets/quiz/
     - assets/fruitsVeges/
     - assets/shapes/
+    - assets/lang/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

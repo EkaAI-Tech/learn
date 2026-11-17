@@ -8,6 +8,8 @@ import 'package:learn/utils/route/route_constant.dart';
 import 'package:provider/provider.dart';
 import '../widgets/drawer.dart';
 import '../theme_provider.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -29,8 +31,10 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
+          // Language menu (English / العربية / Français / Español).
+          const LanguageButton(compact: false),
           Padding(
-            padding: const EdgeInsets.only(right: 16, top: 1),
+            padding: const EdgeInsetsDirectional.only(end: 16, top: 1),
             child: IconButton(
               icon: Icon(
                 themeProvider.themeMode == ThemeMode.dark
@@ -51,10 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               categoryCard(
                 context: context,
-                title: "ALPHABETS",
+                title: "ALPHABETS".tr(),
                 image: AssetsPath.getAlphabetImage(Alphabets.alphabets),
-                shortDescription:
-                    "Learn A to Z with pronunciation and an example",
+                shortDescription: "A2Z".tr(),
                 route: AllRoutesConstant.atozRoute,
                 index: 0,
               ),
@@ -63,9 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "NUMBERS",
+                title: 'home.numbers'.tr(),
                 image: 'assets/images/numbers/numbers.jpg',
-                shortDescription: "Learn numbers and their pronunciations.",
+                shortDescription: 'home.numbers_desc'.tr(),
                 route: AllRoutesConstant.numberRoute,
                 index: 7,
               ),
@@ -74,9 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "ANIMALS",
+                title: 'home.animals'.tr(),
                 image: AssetsPath.getAnimalImage(Animals.animals),
-                shortDescription: "Learn about animals and their voices",
+                shortDescription: 'home.animals_desc'.tr(),
                 route: AllRoutesConstant.animalRoute,
                 index: 1,
               ),
@@ -85,10 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "BODY PARTS",
+                title: 'home.body'.tr(),
                 image: AssetsPath.getBodyImage(Body.body),
                 shortDescription:
-                    "Know about body parts and their pronunciation.",
+                    'home.body_desc'.tr(),
                 route: AllRoutesConstant.partsRoute,
                 index: 2,
               ),
@@ -97,9 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "BIRDS",
+                title: 'home.birds'.tr(),
                 image: AssetsPath.getBirdImage(Birds.birds),
-                shortDescription: "Look out for Birds with their sounds.",
+                shortDescription: 'home.birds_desc'.tr(),
                 route: AllRoutesConstant.birdsRoute,
                 index: 3,
               ),
@@ -108,9 +111,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "COLOURS",
+                title: 'home.colours'.tr(),
                 image: AssetsPath.getColoursImage(ColorImages.colorsCover),
-                shortDescription: "Explore and learn about the colours!",
+                shortDescription: 'home.colours_desc'.tr(),
                 route: AllRoutesConstant.colourRoute,
                 index: 4,
               ),
@@ -119,9 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "FLOWERS",
+                title: 'home.flowers'.tr(),
                 image: AssetsPath.getFlowerImage(Flowers.flowerBanner),
-                shortDescription: "Explore beauty of nature flowers.",
+                shortDescription: 'home.flowers_desc'.tr(),
                 route: AllRoutesConstant.flowerRoute,
                 index: 5,
               ),
@@ -130,10 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "FRUITS & VEGETABLES",
+                title: 'home.fruits'.tr(),
                 image: 'assets/fruitsVeges/cover.jpg',
                 shortDescription:
-                    "Explore and learn about Fruits and Vegetables!",
+                    'home.fruits_desc'.tr(),
                 route: AllRoutesConstant.fruitRoute,
                 index: 6,
               ),
@@ -193,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title,
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
-        Text(shortDescription),
+        Text(shortDescription, textAlign: TextAlign.center),
       ],
     );
   }

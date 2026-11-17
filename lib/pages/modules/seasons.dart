@@ -1,10 +1,13 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/models/season_model.dart';
 import 'package:learn/utils/constants.dart';
 import '../../utils/const_dimensions.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class SeasonsPage extends StatelessWidget {
   const SeasonsPage({Key? key}) : super(key: key);
@@ -13,10 +16,11 @@ class SeasonsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Seasons Serenade',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.seasons'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: const [LanguageButton()],
       ),
       body: ListView.builder(
         itemCount: AppConstants.seasons.length,
@@ -44,7 +48,7 @@ class SeasonsPage extends StatelessWidget {
                   ),
                   const SizedBox(width: ConstantDimensions.widthMedium_Large),
                   Text(
-                    AppConstants.seasons[index].name,
+                    tw('seasons', AppConstants.seasons[index].name),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30.0,
@@ -107,7 +111,7 @@ class _SeasonPopupState extends State<SeasonPopup> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            currentSeason.name,
+            tw('seasons', currentSeason.name),
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ],
@@ -122,7 +126,7 @@ class _SeasonPopupState extends State<SeasonPopup> {
           ),
           const SizedBox(height: ConstantDimensions.heightSmall_Medium),
           Text(
-            currentSeason.description,
+            tdesc('seasons', currentSeason.name, currentSeason.description),
             style: const TextStyle(fontSize: 16.0),
           ),
         ],
@@ -142,9 +146,9 @@ class _SeasonPopupState extends State<SeasonPopup> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text(
-                'Close',
-                style: TextStyle(color: Colors.white),
+              child: Text(
+                'common.close'.tr(),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
             IconButton(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -7,7 +9,7 @@ import 'package:learn/pages/fruits.dart';
 import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/utils/constants.dart';
-import 'package:learn/utils/functions.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class ItemTile extends StatelessWidget {
   final int index;
@@ -127,8 +129,8 @@ class _PopupDialogState extends State<_PopupDialog> {
 
   Future<void> _speakDescription() async {
     final currentItem = widget.items[currentIndex];
-    await flutterTts.setLanguage("EN-IN");
-    await flutterTts.speak(currentItem.title);
+    await flutterTts.setLanguage(AppLang.alphabetTtsLanguage);
+    await flutterTts.speak(currentItem.speakAs ?? currentItem.title);
     await flutterTts.speak(currentItem.description);
   }
 
@@ -182,7 +184,8 @@ class _PopupDialogState extends State<_PopupDialog> {
                   const SizedBox(height: ConstantDimensions.heightMedium),
                   GestureDetector(
                     onTap: () {
-                      AppFunctions().readName(currentItem.description);
+                      flutterTts.setLanguage(AppLang.alphabetTtsLanguage);
+                      flutterTts.speak(currentItem.description);
                     },
                     child: SvgPicture.asset(
                       currentItem.iconAsset,
@@ -205,11 +208,11 @@ class _PopupDialogState extends State<_PopupDialog> {
                     children: [
                       ElevatedButton(
                         onPressed: _previousItem,
-                        child: const Text('Prev'),
+                        child: Text('common.prev'.tr()),
                       ),
                       ElevatedButton(
                         onPressed: _nextItem,
-                        child: const Text('Next'),
+                        child: Text('common.next'.tr()),
                       ),
                     ],
                   ),
@@ -233,7 +236,10 @@ class AtoZ extends StatefulWidget {
 class _AtoZState extends State<AtoZ> {
   bool isTimerEnabled = false;
 
-  List<ItemData> items = AppConstants.alphabetItems;
+  /// Arabic has its own alphabet; the other languages use the A-Z cards.
+  List<ItemData> get items => AppLang.isArabic
+      ? AppConstants.arabicAlphabetItems
+      : AppConstants.alphabetItems;
 
   @override
   Widget build(BuildContext context) {
@@ -242,13 +248,13 @@ class _AtoZState extends State<AtoZ> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              'A-Z',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Text(
+              'titles.atoz'.tr(),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             Expanded(
               child: Align(
-                alignment: Alignment.centerRight,
+                alignment: AlignmentDirectional.centerEnd,
                 child: ElevatedButton(
                   style: ButtonStyle(
                     // ignore: deprecated_member_use
@@ -261,15 +267,16 @@ class _AtoZState extends State<AtoZ> {
                       isTimerEnabled = !isTimerEnabled;
                     });
                   },
-                  child: const Text(
-                    'Auto',
-                    style: TextStyle(color: Colors.white),
+                  child: Text(
+                    'common.auto'.tr(),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               ),
             ),
           ],
         ),
+        actions: const [LanguageButton()],
       ),
       body: Padding(
         padding: const EdgeInsets.all(9),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -8,6 +10,7 @@ import 'package:learn/utils/functions.dart';
 
 import '../../utils/const_dimensions.dart';
 import 'occupations_test.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class OccupationPage extends StatelessWidget {
   final FlutterTts flutterTts = FlutterTts();
@@ -18,9 +21,9 @@ class OccupationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          AppConstants.occupation,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.occupations'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -29,6 +32,7 @@ class OccupationPage extends StatelessWidget {
           },
         ),
         actions: [
+          const LanguageButton(),
           IconButton(
             icon: const Icon(Icons.assessment),
             onPressed: () {
@@ -99,7 +103,7 @@ class _OccupationWidgetState extends State<OccupationWidget> {
         ),
         const SizedBox(height: ConstantDimensions.heightMedium),
         Text(
-          occupation.name,
+          tw('occupations', occupation.name),
           style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -112,7 +116,7 @@ class _OccupationWidgetState extends State<OccupationWidget> {
             left: 8.0,
           ),
           child: Text(
-            occupation.description,
+            tdesc('occupations', occupation.name, occupation.description),
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 22.0,
@@ -130,9 +134,9 @@ class _OccupationWidgetState extends State<OccupationWidget> {
             const SizedBox(width: ConstantDimensions.widthMedium),
             ElevatedButton(
               onPressed: () {
-                AppFunctions().readName(occupation.name);
+                AppFunctions().readName(tw('occupations', occupation.name));
               },
-              child: const Text("Play Sound"),
+              child: Text('common.play_sound'.tr()),
             ),
             const SizedBox(width: ConstantDimensions.widthMedium),
             IconButton(

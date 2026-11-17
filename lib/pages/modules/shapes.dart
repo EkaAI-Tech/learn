@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:learn/utils/constants.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class ShapeData {
   final String name;
@@ -119,10 +121,11 @@ class _ShapesPageState extends State<ShapesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          AppConstants.shape,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.shapes'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: const [LanguageButton()],
       ),
       body: gameWon ? _buildWinScreen() : _buildGameScreen(),
     );
@@ -136,9 +139,11 @@ class _ShapesPageState extends State<ShapesPage> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const Text(
-                'Find and tap all:',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Text(
+                'shapes.find_all'.tr(),
+                textAlign: TextAlign.center,
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               if (currentTargetShape != null) ...[
@@ -149,7 +154,7 @@ class _ShapesPageState extends State<ShapesPage> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  currentTargetShape!.name,
+                  tw('shapes', currentTargetShape!.name),
                   style: const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -158,7 +163,8 @@ class _ShapesPageState extends State<ShapesPage> {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  'Remaining: $remainingCount',
+                  'shapes.remaining'.tr(
+                      namedArgs: {'count': localizeDigits(remainingCount)}),
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
@@ -225,30 +231,34 @@ class _ShapesPageState extends State<ShapesPage> {
               color: Colors.amber,
             ),
             const SizedBox(height: 20),
-            const Text(
-              'You Won!',
-              style: TextStyle(
+            Text(
+              'shapes.won'.tr(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
             const SizedBox(height: 10),
-            const Text(
-              '🎉 Great Job! 🎉',
-              style: TextStyle(
+            Text(
+              'shapes.great_job'.tr(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 28,
                 color: Colors.white,
               ),
             ),
             const SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 20,
+              runSpacing: 12,
               children: [
                 ElevatedButton.icon(
                   onPressed: _startGame,
                   icon: const Icon(Icons.replay),
-                  label: const Text('Play Again'),
+                  label: Text('shapes.play_again'.tr()),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,
@@ -257,11 +267,10 @@ class _ShapesPageState extends State<ShapesPage> {
                     textStyle: const TextStyle(fontSize: 20),
                   ),
                 ),
-                const SizedBox(width: 20),
                 ElevatedButton.icon(
                   onPressed: () => Navigator.pop(context),
                   icon: const Icon(Icons.arrow_back),
-                  label: const Text('Go Back'),
+                  label: Text('common.go_back'.tr()),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,

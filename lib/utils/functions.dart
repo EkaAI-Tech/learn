@@ -2,9 +2,15 @@ import 'dart:ui';
 
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:learn/utils/localization.dart';
 
 class AppFunctions {
+  /// Description of a body part in the current language.
   String getDescription(String name) {
+    return tdesc('body', name, _englishDescription(name));
+  }
+
+  String _englishDescription(String name) {
     switch (name) {
       case "Eye":
         return "Like window to see the world! They help you see colors, shapes, and all your friends.\nThe eye is an organ that reacts to light and allows vision.";
@@ -93,7 +99,7 @@ class AppFunctions {
 
   Future<void> readName(String name) async {
     await flutterTts.setVolume(1.0);
-    await flutterTts.setLanguage("EN-IN");
+    await flutterTts.setLanguage(AppLang.ttsLanguage);
     await flutterTts.setPitch(1.0);
     await flutterTts.speak(name);
   }

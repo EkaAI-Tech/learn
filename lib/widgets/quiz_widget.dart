@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class QuizQuestion {
   final String imageAsset;
@@ -20,11 +23,17 @@ class QuizWidget extends StatefulWidget {
   final List<QuizQuestion> allQuestions;
   final int questionsPerQuiz;
 
+  /// Translation group of the answer words (`words.<group>.<English name>`
+  /// in assets/lang), e.g. 'animals'. The options stay in English in the
+  /// code and are only translated for display.
+  final String? wordGroup;
+
   const QuizWidget({
     Key? key,
     required this.title,
     required this.allQuestions,
     this.questionsPerQuiz = 5,
+    this.wordGroup,
   }) : super(key: key);
 
   @override
@@ -86,21 +95,24 @@ class _QuizWidgetState extends State<QuizWidget> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Quiz Completed'),
+          title: Text('quiz.completed'.tr()),
           content: Text(
-            'You got $correctAnswers out of ${questions.length} correct!',
+            'quiz.result'.tr(namedArgs: {
+              'score': localizeDigits(correctAnswers),
+              'total': localizeDigits(questions.length),
+            }),
             style: const TextStyle(fontSize: 20),
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Restart'),
+              child: Text('common.restart'.tr()),
               onPressed: () {
                 Navigator.of(context).pop();
                 _restartQuiz();
               },
             ),
             TextButton(
-              child: const Text('Close'),
+              child: Text('common.close'.tr()),
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).pop();
@@ -119,6 +131,7 @@ class _QuizWidgetState extends State<QuizWidget> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: const [LanguageButton()],
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -158,11 +171,22 @@ class _QuizWidgetState extends State<QuizWidget> {
                           color: Colors.lightBlueAccent,
                         ),
                         child: Center(
-                          child: Text(
-                            option,
-                            style: const TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
+                          // Shrink long translated words to fit the button.
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(
+                                widget.wordGroup == null
+                                    ? option
+                                    : tw(widget.wordGroup!, option),
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -178,7 +202,7 @@ class _QuizWidgetState extends State<QuizWidget> {
                     children: [
                       if (showFeedback)
                         Text(
-                          isCorrect ? 'Correct!' : 'Wrong!',
+                          (isCorrect ? 'common.correct' : 'common.wrong').tr(),
                           style: TextStyle(
                             color: isCorrect ? Colors.green : Colors.red,
                             fontSize: 28,
@@ -195,9 +219,9 @@ class _QuizWidgetState extends State<QuizWidget> {
                               vertical: 15,
                             ),
                           ),
-                          child: const Text(
-                            'Next',
-                            style: TextStyle(fontSize: 20),
+                          child: Text(
+                            'common.next'.tr(),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                     ],

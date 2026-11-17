@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn/cubit/index_cubit.dart';
 
@@ -31,22 +32,22 @@ class _BottomNavBarState extends State<BottomNavBar> {
             );
             context.read<IndexCubit>().changeIndex(index);
           },
-          destinations: const [
+          destinations: [
             NavigationDestination(
-              icon: Icon(Icons.home_rounded),
-              label: "Home",
+              icon: const Icon(Icons.home_rounded),
+              label: 'nav.home'.tr(),
             ),
             NavigationDestination(
-              icon: Icon(Icons.search_rounded),
-              label: "Explore",
+              icon: const Icon(Icons.search_rounded),
+              label: 'nav.explore'.tr(),
             ),
             NavigationDestination(
-              icon: Icon(Icons.favorite_rounded),
-              label: "Favorite",
+              icon: const Icon(Icons.favorite_rounded),
+              label: 'nav.favorite'.tr(),
             ),
             NavigationDestination(
-              icon: Icon(Icons.person_rounded),
-              label: "About",
+              icon: const Icon(Icons.person_rounded),
+              label: 'nav.about'.tr(),
             ),
           ],
         );

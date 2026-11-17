@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:learn/widgets/quiz_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OccupationsTestPage extends StatelessWidget {
   const OccupationsTestPage({Key? key}) : super(key: key);
@@ -9,7 +10,8 @@ class OccupationsTestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return QuizWidget(
-      title: 'Occupations Test',
+      title: 'tests.occupations'.tr(),
+      wordGroup: 'occupations',
       allQuestions: [
         QuizQuestion(
           imageAsset: 'assets/occupations/doctor.svg',

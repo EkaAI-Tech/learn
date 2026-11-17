@@ -1,0 +1,208 @@
+{
+  "A2Z": "Learn A to Z with pronunciation and an example",
+  "ALPHABETS": "ALPHABETS",
+  "about": {
+    "app_name": "Learn",
+    "connect": "Connect:",
+    "d_animals": "The animals section introduces children to various animals, providing sounds and fun facts about each one. This feature helps children to develop a love for nature and learn more about the animal kingdom.",
+    "d_atoz": "Each letter of the alphabet is accompanied by an example image and pronunciation guide. Children can interact with the letters to hear how they sound, helping them to learn the alphabet in a fun and engaging way.",
+    "d_birds": "The birds section introduces various birds and their calls, helping children to recognize and learn more about avian species.",
+    "d_body": "This feature includes a diagram of the human body with clickable parts that provide information and pronunciation. It helps children to learn about their own bodies and understand the function of each part.",
+    "d_shapes": "Interactive shape recognition game where children learn about different shapes and their properties through gamified learning.",
+    "d_solar": "The solar system feature teaches children about the planets and other celestial bodies, fostering an interest in space and astronomy.",
+    "detailed_title": "Detailed Features:",
+    "developed_by": "Developed by: {name}",
+    "f_animals": "Animals",
+    "f_animals_desc": "Discover animals, hear their sounds, and learn how to pronounce their names, fostering a love for nature and wildlife.",
+    "f_atoz": "A-Z Alphabets",
+    "f_atoz_desc": "Learn the alphabets with examples and pronunciation guides, making it easier for kids to recognize and remember letters.",
+    "f_birds": "Birds",
+    "f_birds_desc": "Explore different birds and their voices, adding to the child’s knowledge about avian species.",
+    "f_body": "Body Parts",
+    "f_body_desc": "Learn about different body parts, how to pronounce them, and gain short information, promoting awareness of their own bodies.",
+    "f_shapes": "Shapes",
+    "f_shapes_desc": "Interactive shape recognition game to learn about different shapes and their properties.",
+    "f_solar": "Solar System",
+    "f_solar_desc": "Gain knowledge about the solar system, sparking interest in space and astronomy.",
+    "faq": "Q: How do I use the app?\nA: Simply navigate through the sections using the bottom navigation bar. Each section is designed to be intuitive and easy to use.\n\nQ: Is the app free?\nA: Yes, the app is free to use.\n\nQ: How can I provide feedback?\nA: You can provide feedback through the contact options available in the About section of the app.",
+    "faq_title": "FAQ:",
+    "features_title": "Features:",
+    "feedback": "We value your feedback! If you have any suggestions or issues, please contact us at {email} or through our social media channels.",
+    "feedback_title": "Feedback and Contact Information:",
+    "guide": "Navigate through the app using the bottom navigation bar. Each section is designed to be interactive and user-friendly. Parents can help guide their children through each feature and use the app as a supplementary learning tool.",
+    "guide_title": "User Guide:",
+    "purpose": "Learn is designed to provide a fun and interactive learning experience for kids. Our mission is to make learning enjoyable and accessible, encouraging curiosity and discovery in young minds. The app covers a wide range of topics to help children build a solid foundation of knowledge in a playful and engaging way.",
+    "purpose_title": "Purpose of the App:",
+    "source_code": "Source Code:",
+    "subtitle": "Learning app for kids",
+    "upcoming_title": "Upcoming Features:",
+    "version": "Version: {version}"
+  },
+  "common": {
+    "auto": "Auto",
+    "close": "Close",
+    "continue": "Continue",
+    "correct": "Correct!",
+    "go_back": "Go Back",
+    "language": "Language",
+    "next": "Next",
+    "no_route": "No route found",
+    "play_sound": "Play Sound",
+    "press_back_exit": "Press back again to exit",
+    "prev": "Prev",
+    "restart": "Restart",
+    "under_construction": "This section is under construction. Please check back soon!",
+    "wrong": "Wrong!"
+  },
+  "drawer": {
+    "about_us": "About us",
+    "app_name": "Learning App for kids",
+    "made_by": "Made by {name}"
+  },
+  "drawing": {
+    "clear": "Clear Board",
+    "desc": "Drawing Board for Artist Kids!",
+    "eraser": "Eraser"
+  },
+  "favorite": {
+    "empty": "No Favorite Items",
+    "empty_hint": "Tap the ♡ on a section in Explore to add it here."
+  },
+  "fruits": {
+    "fruit": "Fruit",
+    "vegetable": "Vegetable"
+  },
+  "home": {
+    "animals": "ANIMALS",
+    "animals_desc": "Learn about animals and their voices",
+    "birds": "BIRDS",
+    "birds_desc": "Look out for Birds with their sounds.",
+    "body": "BODY PARTS",
+    "body_desc": "Know about body parts and their pronunciation.",
+    "colours": "COLOURS",
+    "colours_desc": "Explore and learn about the colours!",
+    "flowers": "FLOWERS",
+    "flowers_desc": "Explore beauty of nature flowers.",
+    "fruits": "FRUITS & VEGETABLES",
+    "fruits_desc": "Explore and learn about Fruits and Vegetables!",
+    "numbers": "NUMBERS",
+    "numbers_desc": "Learn numbers and their pronunciations."
+  },
+  "learn": "Learn",
+  "learning": "Learning Made Easy",
+  "modules": {
+    "A-Z": {
+      "desc": "Learn A to Z with pronunciation and an example",
+      "name": "A-Z"
+    },
+    "Animals": {
+      "desc": "Learn about animals and their sounds",
+      "name": "Animals"
+    },
+    "Birds": {
+      "desc": "Look out for Birds with their sounds",
+      "name": "Birds"
+    },
+    "Body Parts": {
+      "desc": "Know about body parts and their pronunciation.",
+      "name": "Body Parts"
+    },
+    "Colors": {
+      "desc": "Explore and Learn about the colors",
+      "name": "Colors"
+    },
+    "Number": {
+      "desc": "Learn numbers with pronunciation and an example",
+      "name": "Numbers"
+    },
+    "Quiz": {
+      "desc": "Fun Quizzes for Curious Kids!",
+      "name": "Quiz"
+    },
+    "Seasons": {
+      "name": "Seasons",
+      "desc": "Explore the four seasons"
+    },
+    "Shapes": {
+      "desc": "Learn about shapes",
+      "name": "Shapes"
+    },
+    "Solar System": {
+      "desc": "Learn about the solar system",
+      "name": "Solar System"
+    },
+    "Flowers": {
+      "name": "Flowers",
+      "desc": "Discover beautiful flowers"
+    },
+    "Fruits & Vegetables": {
+      "name": "Fruits & Vegetables",
+      "desc": "Learn about healthy fruits and vegetables"
+    },
+    "Occupations": {
+      "name": "Occupations",
+      "desc": "Learn about different occupations"
+    }
+  },
+  "nav": {
+    "about": "About",
+    "explore": "Explore",
+    "favorite": "Favorite",
+    "home": "Home"
+  },
+  "quiz": {
+    "completed": "Quiz Completed",
+    "congrats": "Congratulations !!!",
+    "question_of": "Question {current}/{total}",
+    "result": "You got {score} out of {total} correct!",
+    "scored": "You Have Scored {score} out of {total}"
+  },
+  "quiz_q": {
+    "balls": "Count the Number of Balls",
+    "buckets": "Count Buckets",
+    "hearts": "Count Hearts",
+    "orange_cars": "How many Orange Cars are there?",
+    "pencils": "Count the pencils",
+    "pokemons": "Count the Pokemons.",
+    "seq1": "1, 2, _, 4, 5",
+    "seq2": "10, 20, _, 40, 50",
+    "yellow_bears": "Count Yellow Bears."
+  },
+  "start": "Get Started",
+  "tests": {
+    "animals": "Animals Test",
+    "birds": "Birds Test",
+    "body": "Body Parts Test",
+    "flowers": "Flowers Test",
+    "occupations": "Occupations Test",
+    "planets": "Planets Test"
+  },
+  "title": "Learn",
+  "titles": {
+    "animals": "Animals",
+    "atoz": "A - Z",
+    "birds": "Birds",
+    "body": "Body Parts",
+    "colours": "Colours",
+    "drawing": "Drawing Board",
+    "flowers": "Flowers",
+    "fruits": "Fruits & Vegetables",
+    "home": "Home",
+    "learn_more": "Learn More",
+    "numbers": "Numbers",
+    "occupations": "Occupations",
+    "seasons": "Seasons Serenade",
+    "shapes": "Shapes",
+    "solar": "Solar System"
+  },
+  "explore": {
+    "drawing_desc": "Drawing Board for Artist Kids!"
+  },
+  "shapes": {
+    "find_all": "Find and tap all:",
+    "remaining": "Remaining: {count}",
+    "won": "You Won!",
+    "great_job": "🎉 Great Job! 🎉",
+    "play_again": "Play Again"
+  }
+}

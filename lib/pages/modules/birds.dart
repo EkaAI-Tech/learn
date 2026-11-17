@@ -1,6 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -10,6 +12,7 @@ import 'package:learn/utils/functions.dart';
 
 import '../../utils/const_dimensions.dart';
 import 'birds_test.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class BirdsPage extends StatelessWidget {
 
@@ -22,11 +25,12 @@ class BirdsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          AppConstants.bird,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.birds'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
+          const LanguageButton(),
           IconButton(
             icon: const Icon(Icons.assessment),
             onPressed: () {
@@ -114,13 +118,14 @@ class _BirdWidgetState extends State<BirdWidget> {
             highlightColor: Colors.amber,
             onPressed: () {
               AppFunctions().readName(
-                bird.name,
+                tw('birds', bird.name),
               );
             },
             icon: const Icon(Icons.volume_up_outlined),
           ),
           Text(
-            bird.name,
+            tw('birds', bird.name),
+            textAlign: TextAlign.center,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 60,
@@ -140,7 +145,7 @@ class _BirdWidgetState extends State<BirdWidget> {
                 onPressed: () {
                   AppFunctions().playSound(bird.soundAsset);
                 },
-                child: const Text('Play Sound'),
+                child: Text('common.play_sound'.tr()),
               ),
               const SizedBox(width: ConstantDimensions.widthMedium),
               IconButton(

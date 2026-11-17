@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:learn/landing_page.dart';
 import 'package:learn/pages/explore/drawingboard.dart';
 import 'package:learn/pages/explore/quiz.dart';
@@ -59,9 +60,9 @@ class Routers {
 
       default:
         return MaterialPageRoute(
-          builder: (context) => const Scaffold(
+          builder: (context) => Scaffold(
             body: Center(
-              child: Text('No route found'),
+              child: Text('common.no_route'.tr()),
             ),
           ),
         );

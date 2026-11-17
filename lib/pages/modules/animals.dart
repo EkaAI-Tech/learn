@@ -10,6 +10,9 @@ import 'package:learn/utils/functions.dart';
 
 import '../../utils/const_dimensions.dart';
 import 'animals_test.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class AnimalsPage extends StatelessWidget {
   final FlutterTts flutterTts = FlutterTts();
@@ -21,11 +24,12 @@ class AnimalsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          AppConstants.animal,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.animals'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
+          const LanguageButton(),
           IconButton(
             icon: const Icon(Icons.assessment),
             onPressed: () {
@@ -63,7 +67,7 @@ class AnimalsPage extends StatelessWidget {
                   ),
                   const SizedBox(width: ConstantDimensions.widthMedium_Large),
                   Text(
-                    AppConstants.animals[index].name,
+                    tw('animals', AppConstants.animals[index].name),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30.0,
@@ -83,7 +87,7 @@ class AnimalsPage extends StatelessWidget {
       BuildContext context, Animal animal, int currentIndex) async {
     await flutterTts.setVolume(1.0);
     await flutterTts.setSpeechRate(.5);
-    await flutterTts.setLanguage("EN-IN");
+    await flutterTts.setLanguage(AppLang.ttsLanguage);
     await flutterTts.setPitch(1.0);
 
     showDialog(
@@ -145,7 +149,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
               children: [
                 Expanded(
                   child: Text(
-                    widget.animal.name,
+                    tw('animals', widget.animal.name),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -154,7 +158,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
                 ),
                 IconButton(
                   onPressed: () {
-                    AppFunctions().readName(widget.animal.name);
+                    AppFunctions().readName(tw('animals', widget.animal.name));
                   },
                   icon: const Icon(Icons.volume_up),
                 ),
@@ -189,7 +193,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
                       onPressed: () {
                         AppFunctions().playSound(widget.animal.soundAsset);
                       },
-                      child: const Text('Play Sound'),
+                      child: Text('common.play_sound'.tr()),
                     ),
                     const SizedBox(height: 16),
                     Row(
@@ -220,9 +224,9 @@ class _AnimalPopupState extends State<AnimalPopup> {
                         AppFunctions().stopSound();
                         Navigator.of(context).pop();
                       },
-                      child: const Text(
-                        'Close',
-                        style: TextStyle(color: Colors.white),
+                      child: Text(
+                        'common.close'.tr(),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   ],
