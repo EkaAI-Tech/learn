@@ -1,12 +1,15 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/assets_path.dart';
 
 import 'package:learn/models/colours_model.dart';
 import 'package:learn/utils/functions.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class ColoursPage extends StatefulWidget {
   const ColoursPage({Key? key}) : super(key: key);
@@ -100,13 +103,14 @@ class _ColoursPageState extends State<ColoursPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Colours',
+          'titles.colours'.tr(),
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,
             color: colour.bgColor,
           ),
         ),
+        actions: const [LanguageButton()],
       ),
       backgroundColor: colour.bgColor,
       body: SingleChildScrollView(
@@ -144,7 +148,8 @@ class _ColoursPageState extends State<ColoursPage> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    colour.name,
+                    tw('colors', colour.name),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 60,
@@ -167,7 +172,7 @@ class _ColoursPageState extends State<ColoursPage> {
                       IconButton.outlined(
                         highlightColor: Colors.amber,
                         onPressed: () {
-                          AppFunctions().readName(colour.name);
+                          AppFunctions().readName(tw('colors', colour.name));
                         },
                         icon: const Icon(
                           Icons.volume_up_outlined,

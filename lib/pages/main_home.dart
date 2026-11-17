@@ -1,5 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/cubit/index_cubit.dart';
@@ -31,21 +33,22 @@ class _MainHomeState extends State<MainHome> {
     _pageController = PageController();
   }
 
-  bool _onBackPressed(bool canPop) {
-    DateTime now = DateTime.now();
+  /// Back on the main screen: the first press shows a hint, a second
+  /// press within 2 seconds closes the app.
+  void _onBackPressed(bool didPop) {
+    if (didPop) return;
+    final now = DateTime.now();
     if (currentBackPressTime == null ||
         now.difference(currentBackPressTime!) > const Duration(seconds: 2)) {
       currentBackPressTime = now;
       Fluttertoast.showToast(
-        msg: "Press back again to exit",
+        msg: 'common.press_back_exit'.tr(),
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
       );
-      canPop = false;
     } else {
-      canPop = true;
+      SystemNavigator.pop();
     }
-    return canPop;
   }
 
   @override
@@ -57,6 +60,7 @@ class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
+      canPop: false,
       onPopInvoked: _onBackPressed,
       child: AdaptiveTheme(
         light: ThemeData.light(),

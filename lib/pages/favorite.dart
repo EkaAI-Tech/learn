@@ -7,6 +7,8 @@ import 'package:learn/utils/route/route_constant.dart';
 import 'package:provider/provider.dart';
 import '../../favorite_page_provider.dart';
 import '../../utils/const_dimensions.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/widgets/language_button.dart';
 
 // Explore Page
 class FavoritePage extends StatefulWidget {
@@ -39,14 +41,25 @@ class _FavoritePageState extends State<FavoritePage> {
         Provider.of<FavouriteScreenProvider>(context, listen: false);
     List<int> selectItem = provider.selectedItemList;
     return (provider.selectedItemList.isEmpty && !provider.drawingBoard)
-        ? const Center(
-            child: Text("No Favorite Items\nAdd favourites from explore"),
+        ? Center(
+            child: Padding(
+              padding: const EdgeInsets.all(32),
+              child: Text(
+                '${'favorite.empty'.tr()}\n${'favorite.empty_hint'.tr()}',
+                textAlign: TextAlign.center,
+              ),
+            ),
           )
         : _isLoading
             ? const Center(child: CircularProgressIndicator())
             : SafeArea(
                 child: CustomScrollView(
                   slivers: [
+                    // Language menu (the page has no title, like upstream).
+                    const SliverAppBar(
+                      floating: true,
+                      actions: [LanguageButton()],
+                    ),
                     SliverList(
                       delegate: SliverChildListDelegate(
                         [
@@ -96,7 +109,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    "Drawing Board",
+                                                    'titles.drawing'.tr(),
+                                                    textAlign: TextAlign.center,
                                                     style: Theme.of(context)
                                                         .textTheme
                                                         .headlineMedium!
@@ -114,7 +128,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "Drawing Board for Artist Kids!",
+                                                    'explore.drawing_desc'.tr(),
+                                                    textAlign: TextAlign.center,
                                                     style: Theme.of(context)
                                                         .textTheme
                                                         .bodyMedium!
@@ -250,8 +265,9 @@ class _FavoritePageState extends State<FavoritePage> {
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    AppConstants
-                                                        .modules[index].name,
+                                                    'modules.${AppConstants.modules[index].name}.name'
+                                                        .tr(),
+                                                    textAlign: TextAlign.center,
                                                     style: Theme.of(context)
                                                         .textTheme
                                                         .headlineMedium!
@@ -269,8 +285,9 @@ class _FavoritePageState extends State<FavoritePage> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    AppConstants.modules[index]
-                                                        .description,
+                                                    'modules.${AppConstants.modules[index].name}.desc'
+                                                        .tr(),
+                                                    textAlign: TextAlign.center,
                                                     style: Theme.of(context)
                                                         .textTheme
                                                         .bodyMedium!

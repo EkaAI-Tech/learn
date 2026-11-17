@@ -1,12 +1,15 @@
 // ignore_for_file: unused_element
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
 import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/functions.dart';
 import 'flowers_test.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class FlowerPage extends StatefulWidget {
   const FlowerPage({super.key});
@@ -105,14 +108,15 @@ class _FlowerPageState extends State<FlowerPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Flowers',
-          style: TextStyle(
+        title: Text(
+          'titles.flowers'.tr(),
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,
           ),
         ),
         actions: [
+          const LanguageButton(),
           IconButton(
             icon: const Icon(Icons.assignment),
             onPressed: () {
@@ -157,7 +161,8 @@ class _FlowerPageState extends State<FlowerPage> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    flower.name,
+                    tw('flowers', flower.name),
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 60,
@@ -179,7 +184,7 @@ class _FlowerPageState extends State<FlowerPage> {
                       IconButton.outlined(
                         highlightColor: Colors.amber,
                         onPressed: () {
-                          AppFunctions().readName(flower.name);
+                          AppFunctions().readName(tw('flowers', flower.name));
                         },
                         icon: const Icon(
                           Icons.volume_up_outlined,

@@ -338,54 +338,54 @@ class AppConstants {
   ];
   static List<Questions> ques = [
     Questions(
-      question: "How many Orange Cars are there?",
+      question: "quiz_q.orange_cars",
       options: ["5", "6", "1", "2"],
       image: "assets/quiz/q1.jpg",
       answer: 3, // Index of the correct option, in this case, "Paris"
     ),
     Questions(
-      question: "Count the Pokemons.",
+      question: "quiz_q.pokemons",
       image: "assets/quiz/q2.jpg",
 
       options: ["11", "9", "10", "8"],
       answer: 2, // Index of the correct option, in this case, "Au"
     ),
     Questions(
-      question: "1,2,_,4,5",
+      question: "quiz_q.seq1",
       options: ["5", "3", "6", "4"],
       answer: 1, // Index of the correct option, in this case, "105"
     ),
     Questions(
-      question: "10,20_,40,50",
+      question: "quiz_q.seq2",
       options: ["60", "20", "30", "70"],
       answer: 2, // Index of the correct option, in this case, "Dart"
     ),
     Questions(
-      question: "Count Yellow Bears.",
+      question: "quiz_q.yellow_bears",
       image: "assets/quiz/q5.jpg",
       options: ["2", "3", "4", "5"],
       answer: 1, // Index of the correct option, in this case, "1492"
     ),
     Questions(
-      question: "Count the Number of Balls",
+      question: "quiz_q.balls",
       image: "assets/quiz/q6.jpg",
       options: ["5", "6", "4", "7"],
       answer: 0, // Index of the correct option, in this case, "1492"
     ),
     Questions(
-      question: "Count Hearts",
+      question: "quiz_q.hearts",
       image: "assets/quiz/q7.jpg",
       options: ["10", "6", "9", "7"],
       answer: 3, // Index of the correct option, in this case, "1492"
     ),
     Questions(
-      question: "Count Buckets",
+      question: "quiz_q.buckets",
       image: "assets/quiz/q9.jpg",
       options: ["1", "2", "3", "4"],
       answer: 0, // Index of the correct option, in this case, "1492"
     ),
     Questions(
-      question: "Count the pencils",
+      question: "quiz_q.pencils",
       image: "assets/quiz/q10.jpg",
       options: ["10", "12", "13", "11"],
       answer: 2, // Index of the correct option, in this case, "1492"
@@ -609,6 +609,307 @@ class AppConstants {
       title: 'Z',
       backgroundColor: const Color.fromARGB(155, 81, 0, 255),
       description: 'Zero',
+    ),
+  ];
+
+
+  /// Arabic alphabet (shown by the A-Z page when the app is in Arabic).
+  static List<ItemData> arabicAlphabetItems = [
+    ItemData(
+      iconAsset: 'assets/images/animal/rabbit.svg',
+      title: 'أ',
+      speakAs: 'ألف',
+      description: 'أرنب',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/birds/Duck.svg',
+      title: 'ب',
+      speakAs: 'باء',
+      description: 'بطة',
+      backgroundColor: const Color.fromARGB(115, 215, 118, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/fruitsVeges/apple.svg',
+      title: 'ت',
+      speakAs: 'تاء',
+      description: 'تفاحة',
+      backgroundColor: const Color.fromARGB(194, 130, 243, 69),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/fox.svg',
+      title: 'ث',
+      speakAs: 'ثاء',
+      description: 'ثعلب',
+      backgroundColor: const Color.fromARGB(115, 215, 199, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/fruitsVeges/carrot.svg',
+      title: 'ج',
+      speakAs: 'جيم',
+      description: 'جزرة',
+      backgroundColor: const Color.fromARGB(115, 118, 215, 173),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/horse.svg',
+      title: 'ح',
+      speakAs: 'حاء',
+      description: 'حصان',
+      backgroundColor: const Color.fromARGB(115, 150, 118, 215),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/sheep.svg',
+      title: 'خ',
+      speakAs: 'خاء',
+      description: 'خروف',
+      backgroundColor: const Color.fromARGB(115, 215, 118, 175),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/bear.svg',
+      title: 'د',
+      speakAs: 'دال',
+      description: 'دب',
+      backgroundColor: const Color.fromARGB(115, 157, 215, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/body/Arm.svg',
+      title: 'ذ',
+      speakAs: 'ذال',
+      description: 'ذراع',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: 'assets/occupations/artist.svg',
+      title: 'ر',
+      speakAs: 'راء',
+      description: 'رسّام',
+      backgroundColor: const Color.fromARGB(115, 215, 118, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/giraffe.svg',
+      title: 'ز',
+      speakAs: 'زاي',
+      description: 'زرافة',
+      backgroundColor: const Color.fromARGB(194, 130, 243, 69),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/alphabet/fish.svg',
+      title: 'س',
+      speakAs: 'سين',
+      description: 'سمكة',
+      backgroundColor: const Color.fromARGB(115, 215, 199, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/solar/sun.svg',
+      title: 'ش',
+      speakAs: 'شين',
+      description: 'شمس',
+      backgroundColor: const Color.fromARGB(115, 118, 215, 173),
+    ),
+    ItemData(
+      iconAsset: 'assets/seasons/summer.svg',
+      title: 'ص',
+      speakAs: 'صاد',
+      description: 'صيف',
+      backgroundColor: const Color.fromARGB(115, 150, 118, 215),
+    ),
+    ItemData(
+      iconAsset: 'assets/occupations/police.svg',
+      title: 'ض',
+      speakAs: 'ضاد',
+      description: 'ضابط شرطة',
+      backgroundColor: const Color.fromARGB(115, 215, 118, 175),
+    ),
+    ItemData(
+      iconAsset: 'assets/fruitsVeges/tomato.svg',
+      title: 'ط',
+      speakAs: 'طاء',
+      description: 'طماطم',
+      backgroundColor: const Color.fromARGB(115, 157, 215, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/body/Nail.svg',
+      title: 'ظ',
+      speakAs: 'ظاء',
+      description: 'ظفر',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: 'assets/fruitsVeges/grapes.svg',
+      title: 'ع',
+      speakAs: 'عين',
+      description: 'عنب',
+      backgroundColor: const Color.fromARGB(115, 215, 118, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/birds/Crow.svg',
+      title: 'غ',
+      speakAs: 'غين',
+      description: 'غراب',
+      backgroundColor: const Color.fromARGB(194, 130, 243, 69),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/elephant.svg',
+      title: 'ف',
+      speakAs: 'فاء',
+      description: 'فيل',
+      backgroundColor: const Color.fromARGB(115, 215, 199, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/monkey.svg',
+      title: 'ق',
+      speakAs: 'قاف',
+      description: 'قرد',
+      backgroundColor: const Color.fromARGB(115, 118, 215, 173),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/dog.svg',
+      title: 'ك',
+      speakAs: 'كاف',
+      description: 'كلب',
+      backgroundColor: const Color.fromARGB(115, 150, 118, 215),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/body/Tongue.svg',
+      title: 'ل',
+      speakAs: 'لام',
+      description: 'لسان',
+      backgroundColor: const Color.fromARGB(115, 215, 118, 175),
+    ),
+    ItemData(
+      iconAsset: 'assets/fruitsVeges/banana.svg',
+      title: 'م',
+      speakAs: 'ميم',
+      description: 'موزة',
+      backgroundColor: const Color.fromARGB(115, 157, 215, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/tiger.svg',
+      title: 'ن',
+      speakAs: 'نون',
+      description: 'نمر',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/animal/cat.svg',
+      title: 'هـ',
+      speakAs: 'هاء',
+      description: 'هِرّة',
+      backgroundColor: const Color.fromARGB(115, 215, 118, 118),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/flowers/rose.svg',
+      title: 'و',
+      speakAs: 'واو',
+      description: 'وردة',
+      backgroundColor: const Color.fromARGB(194, 130, 243, 69),
+    ),
+    ItemData(
+      iconAsset: 'assets/images/body/Palm.svg',
+      title: 'ي',
+      speakAs: 'ياء',
+      description: 'يد',
+      backgroundColor: const Color.fromARGB(115, 215, 199, 118),
+    ),
+  ];
+
+  /// Numbers with Arabic-Indic digits and Arabic words.
+  static List<ItemData> _withWords(List<ItemData> base, List<String> words) => [
+        for (var i = 0; i < base.length; i++)
+          ItemData(
+            iconAsset: base[i].iconAsset,
+            title: base[i].title,
+            description: words[i],
+            backgroundColor: base[i].backgroundColor,
+          ),
+      ];
+
+  /// Numbers 0-9 with French words.
+  static final List<ItemData> frenchNumberItems = _withWords(numberItems, const [
+    'zéro', 'un', 'deux', 'trois', 'quatre',
+    'cinq', 'six', 'sept', 'huit', 'neuf',
+  ]);
+
+  /// Numbers 0-9 with Spanish words.
+  static final List<ItemData> spanishNumberItems = _withWords(numberItems, const [
+    'cero', 'uno', 'dos', 'tres', 'cuatro',
+    'cinco', 'seis', 'siete', 'ocho', 'nueve',
+  ]);
+
+  /// Number cards for a language code (en, ar, fr, es).
+  static List<ItemData> numberItemsFor(String code) {
+    switch (code) {
+      case 'ar':
+        return arabicNumberItems;
+      case 'fr':
+        return frenchNumberItems;
+      case 'es':
+        return spanishNumberItems;
+      default:
+        return numberItems;
+    }
+  }
+
+  static List<ItemData> arabicNumberItems = [
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.zero),
+      title: '٠',
+      description: 'صفر',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.one),
+      title: '١',
+      description: 'واحد',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.two),
+      title: '٢',
+      description: 'اثنان',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.three),
+      title: '٣',
+      description: 'ثلاثة',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.four),
+      title: '٤',
+      description: 'أربعة',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.five),
+      title: '٥',
+      description: 'خمسة',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.six),
+      title: '٦',
+      description: 'ستة',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.seven),
+      title: '٧',
+      description: 'سبعة',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.eight),
+      title: '٨',
+      description: 'ثمانية',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.nine),
+      title: '٩',
+      description: 'تسعة',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
     ),
   ];
 

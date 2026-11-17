@@ -3,7 +3,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class DrawingBoardPage extends StatelessWidget {
   const DrawingBoardPage({Key? key}) : super(key: key);
@@ -41,12 +43,13 @@ class DrawingBoardState extends State<DrawingBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Drawing Board"),
+        title: Text('titles.drawing'.tr()),
         actions: [
+          const LanguageButton(),
           TextButton.icon(
             onPressed: () => setState(() => drawingPoints = []),
             icon: const Icon(Icons.clear),
-            label: const Text("Clear Board"),
+            label: Text('drawing.clear'.tr()),
             style: TextButton.styleFrom(
               foregroundColor: Colors.black, // Changed for better visibility
               backgroundColor: const Color(0xfff7f2fa),
@@ -124,7 +127,7 @@ class DrawingBoardState extends State<DrawingBoard> {
                     });
                   },
                   icon: const Icon(FontAwesomeIcons.eraser),
-                  label: const Text("Eraser"),
+                  label: Text('drawing.eraser'.tr()),
                 ),
               ],
             ),

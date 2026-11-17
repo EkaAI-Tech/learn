@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -12,79 +14,84 @@ class AboutPage extends StatelessWidget {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
+          // Language menu (the page has no title, like upstream).
+          const SliverAppBar(
+            floating: true,
+            actions: [LanguageButton()],
+          ),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Center(
+                  Center(
                     child: Text(
-                      'Learn',
-                      style: TextStyle(
+                      'about.app_name'.tr(),
+                      style: const TextStyle(
                         fontSize: 32.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   const SizedBox(height: 8.0),
-                  const Center(
+                  Center(
                     child: Text(
-                      'Learning app for kids',
-                      style: TextStyle(
+                      'about.subtitle'.tr(),
+                      style: const TextStyle(
                         fontSize: 18.0,
                         color: Colors.grey,
                       ),
                     ),
                   ),
                   const SizedBox(height: 32.0),
-                  _buildSectionTitle(context, 'Version: 1.2.1'),
+                  _buildSectionTitle(
+                      context, 'about.version'.tr(namedArgs: {'version': '1.2.1'})),
                   const SizedBox(height: 8.0),
-                  _buildSectionContent(context, 'Developed by: sapatevaibhav'),
+                  _buildSectionContent(context,
+                      'about.developed_by'.tr(namedArgs: {'name': 'sapatevaibhav'})),
                   const SizedBox(height: 16.0),
-                  _buildSectionTitle(context, 'Purpose of the App:'),
+                  _buildSectionTitle(context, 'about.purpose_title'.tr()),
                   const SizedBox(height: 8.0),
                   _buildSectionContent(
                     context,
-                    'Learn is designed to provide a fun and interactive learning experience for kids. '
-                    'Our mission is to make learning enjoyable and accessible, encouraging curiosity and discovery in young minds. '
-                    'The app covers a wide range of topics to help children build a solid foundation of knowledge in a playful and engaging way.',
+                    'about.purpose'.tr(),
                   ),
                   const SizedBox(height: 16.0),
-                  _buildSectionTitle(context, 'Features:'),
+                  _buildSectionTitle(context, 'about.features_title'.tr()),
                   const SizedBox(height: 8.0),
                   _buildFeature(
                     context,
-                    'A-Z Alphabets',
-                    'Learn the alphabets with examples and pronunciation guides, making it easier for kids to recognize and remember letters.',
+                    'about.f_atoz'.tr(),
+                    'about.f_atoz_desc'.tr(),
                   ),
                   _buildFeature(
                     context,
-                    'Animals',
-                    'Discover animals, hear their sounds, and learn how to pronounce their names, fostering a love for nature and wildlife.',
+                    'about.f_animals'.tr(),
+                    'about.f_animals_desc'.tr(),
                   ),
                   _buildFeature(
                     context,
-                    'Body Parts',
-                    'Learn about different body parts, how to pronounce them, and gain short information, promoting awareness of their own bodies.',
+                    'about.f_body'.tr(),
+                    'about.f_body_desc'.tr(),
                   ),
                   _buildFeature(
                     context,
-                    'Birds',
-                    'Explore different birds and their voices, adding to the child\'s knowledge about avian species.',
+                    'about.f_birds'.tr(),
+                    'about.f_birds_desc'.tr(),
                   ),
                   _buildFeature(
                     context,
-                    'Solar System',
-                    'Gain knowledge about the solar system, sparking interest in space and astronomy.',
+                    'about.f_solar'.tr(),
+                    'about.f_solar_desc'.tr(),
                   ),
                   _buildFeature(
                     context,
-                    'Shapes',
-                    'Interactive shape recognition game to learn about different shapes and their properties.',
+                    'about.f_shapes'.tr(),
+                    'about.f_shapes_desc'.tr(),
                   ),
                   const SizedBox(height: 16.0),
-                  _buildSectionTitle(context, 'Source Code:'),
+                  _buildSectionTitle(context, 'about.source_code'.tr()),
                   const SizedBox(height: 8.0),
                   GestureDetector(
                     onTap: () {
@@ -117,7 +124,7 @@ class AboutPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16.0),
-                  _buildSectionTitle(context, 'Connect:'),
+                  _buildSectionTitle(context, 'about.connect'.tr()),
                   const SizedBox(height: 8.0),
                   Row(
                     children: [
@@ -159,7 +166,7 @@ class AboutPage extends StatelessWidget {
                             horizontal: 24, vertical: 12),
                         textStyle: const TextStyle(fontSize: 18.0),
                       ),
-                      child: const Text('Learn More'),
+                      child: Text('titles.learn_more'.tr()),
                     ),
                   ),
                 ],
@@ -249,73 +256,69 @@ class LearnMorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Learn More',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.learn_more'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: const [LanguageButton()],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildSectionTitle(context, 'Detailed Features:'),
+            _buildSectionTitle(context, 'about.detailed_title'.tr()),
             const SizedBox(height: 8.0),
             _buildFeature(
               context,
-              'A-Z Alphabets',
-              'Each letter of the alphabet is accompanied by an example image and pronunciation guide. Children can interact with the letters to hear how they sound, helping them to learn the alphabet in a fun and engaging way.',
+              'about.f_atoz'.tr(),
+              'about.d_atoz'.tr(),
             ),
             _buildFeature(
               context,
-              'Animals',
-              'The animals section introduces children to various animals, providing sounds and fun facts about each one. This feature helps children to develop a love for nature and learn more about the animal kingdom.',
+              'about.f_animals'.tr(),
+              'about.d_animals'.tr(),
             ),
             _buildFeature(
               context,
-              'Body Parts',
-              'This feature includes a diagram of the human body with clickable parts that provide information and pronunciation. It helps children to learn about their own bodies and understand the function of each part.',
+              'about.f_body'.tr(),
+              'about.d_body'.tr(),
             ),
             _buildFeature(
               context,
-              'Birds',
-              'The birds section introduces various birds and their calls, helping children to recognize and learn more about avian species.',
+              'about.f_birds'.tr(),
+              'about.d_birds'.tr(),
             ),
             _buildFeature(
               context,
-              'Solar System',
-              'The solar system feature teaches children about the planets and other celestial bodies, fostering an interest in space and astronomy.',
+              'about.f_solar'.tr(),
+              'about.d_solar'.tr(),
             ),
             _buildFeature(
               context,
-              'Shapes',
-              'Interactive shape recognition game where children learn about different shapes and their properties through gamified learning.',
+              'about.f_shapes'.tr(),
+              'about.d_shapes'.tr(),
             ),
             const SizedBox(height: 16.0),
-            _buildSectionTitle(context, 'User Guide:'),
+            _buildSectionTitle(context, 'about.guide_title'.tr()),
             const SizedBox(height: 8.0),
             _buildSectionContent(
               context,
-              'Navigate through the app using the bottom navigation bar. Each section is designed to be interactive and user-friendly. Parents can help guide their children through each feature and use the app as a supplementary learning tool.',
+              'about.guide'.tr(),
             ),
             const SizedBox(height: 16.0),
-            _buildSectionTitle(context, 'FAQ:'),
+            _buildSectionTitle(context, 'about.faq_title'.tr()),
             const SizedBox(height: 8.0),
             _buildSectionContent(
               context,
-              'Q: How do I use the app?\n'
-              'A: Simply navigate through the sections using the bottom navigation bar. Each section is designed to be intuitive and easy to use.\n\n'
-              'Q: Is the app free?\n'
-              'A: Yes, the app is free to use.\n\n'
-              'Q: How can I provide feedback?\n'
-              'A: You can provide feedback through the contact options available in the About section of the app.',
+              'about.faq'.tr(),
             ),
             const SizedBox(height: 16.0),
-            _buildSectionTitle(context, 'Feedback and Contact Information:'),
+            _buildSectionTitle(context, 'about.feedback_title'.tr()),
             const SizedBox(height: 8.0),
             _buildSectionContent(
               context,
-              'We value your feedback! If you have any suggestions or issues, please contact us at sapatevaibhav@duck.com or through our social media channels.',
+              'about.feedback'.tr(namedArgs: {'email': 'sapatevaibhav@duck.com'}),
             ),
           ],
         ),

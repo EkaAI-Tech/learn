@@ -14,6 +14,7 @@
 - A-Z Alphabets with examples and pronunciation.
 - Animals and their pronunciation along with their voices.
 - Body parts and their pronunciation with Short information on various topics.
+- Available in English, العربية (Arabic, right-to-left), Français and Español – switch language from any page.
 
 More exciting features are planned for future updates, such as birds and their voices, information on the solar system, knowledge of shapes, and much more!
 
@@ -135,6 +136,15 @@ flutter run
 fvm flutter run
 ```
 That's it! The app should now be running on your device/emulator.
+
+### Translations
+
+All texts are in `assets/lang/<code>.json` (`en`, `ar`, `fr`, `es`) and are read with
+[easy_localization](https://pub.dev/packages/easy_localization) (`'key'.tr()`).
+Learning content keeps its English name in `lib/utils/constants.dart`; its translation is under
+`words.<group>.<English name>` and `descriptions.<group>.<English name>` in each language file.
+To add a language: copy `en.json`, translate it, add the locale to `AppLang.supported` in
+`lib/utils/localization.dart` and to `CFBundleLocalizations` in `ios/Runner/Info.plist`.
 
 ### Screenshots
 

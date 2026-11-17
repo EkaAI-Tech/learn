@@ -1,6 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -9,6 +11,7 @@ import 'package:learn/utils/functions.dart';
 import '../../utils/const_dimensions.dart';
 import 'package:learn/models/planet_model.dart';
 import 'planets_test.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class PlanetsPage extends StatelessWidget {
   final FlutterTts flutterTts = FlutterTts();
@@ -26,9 +29,9 @@ class PlanetsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          AppConstants.solar,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.solar'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -37,6 +40,7 @@ class PlanetsPage extends StatelessWidget {
           },
         ),
         actions: [
+          const LanguageButton(),
           IconButton(
             icon: const Icon(Icons.assignment),
             onPressed: () {
@@ -112,7 +116,7 @@ class _PlanetWidgetState extends State<PlanetWidget> {
         ),
         const SizedBox(height: ConstantDimensions.heightMedium),
         Text(
-          planet.description,
+          tdesc('planets', planet.name, planet.description),
           style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -130,9 +134,9 @@ class _PlanetWidgetState extends State<PlanetWidget> {
             const SizedBox(width: ConstantDimensions.widthMedium),
             ElevatedButton(
               onPressed: () {
-                AppFunctions().readName(planet.name);
+                AppFunctions().readName(tw('planets', planet.name));
               },
-              child: const Text('Play Sound'),
+              child: Text('common.play_sound'.tr()),
             ),
             const SizedBox(width: ConstantDimensions.widthMedium),
             IconButton(

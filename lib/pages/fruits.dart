@@ -1,6 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -8,6 +10,7 @@ import 'package:learn/utils/constants.dart';
 import 'package:learn/utils/functions.dart';
 
 import '../utils/const_dimensions.dart';
+import 'package:learn/widgets/language_button.dart';
 
 class Fruit {
   final String name;
@@ -57,10 +60,11 @@ class _FruitsPageState extends State<FruitsPage> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        title: const Text(
-          AppConstants.fruit,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.fruits'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: const [LanguageButton()],
       ),
       body: Center(
         child: Column(
@@ -93,13 +97,14 @@ class _FruitsPageState extends State<FruitsPage> {
             IconButton.outlined(
               onPressed: () {
                 AppFunctions().readName(
-                  AppConstants.Fruits[_currentIndex].name,
+                  tw('fruits', AppConstants.Fruits[_currentIndex].name),
                 );
               },
               icon: const Icon(Icons.volume_up_outlined),
             ),
             Text(
-              AppConstants.Fruits[_currentIndex].name,
+              tw('fruits', AppConstants.Fruits[_currentIndex].name),
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 60,
@@ -128,7 +133,7 @@ class _FruitsPageState extends State<FruitsPage> {
                     }
                     // _playBirdSound(bird.soundAsset);
                   },
-                  child: const Text('Fruit'),
+                  child: Text('fruits.fruit'.tr()),
                 ),
                 ElevatedButton(
                   style: ButtonStyle(
@@ -143,7 +148,7 @@ class _FruitsPageState extends State<FruitsPage> {
                       setState(() {});
                     }
                   },
-                  child: const Text('Vegetable'),
+                  child: Text('fruits.vegetable'.tr()),
                 ),
                 IconButton(
                   onPressed: _navigateToNextBird,

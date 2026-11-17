@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 
 class Quiz extends StatefulWidget {
   static const routeName = "/quiz";
@@ -47,7 +49,10 @@ class _QuizState extends State<Quiz> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Question ${questionnumber + 1}/${AppConstants.ques.length}",
+          'quiz.question_of'.tr(namedArgs: {
+            'current': localizeDigits(questionnumber + 1),
+            'total': localizeDigits(AppConstants.ques.length),
+          }),
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -90,7 +95,9 @@ class _QuizState extends State<Quiz> {
                     height: 10,
                   ),
                   Text(
-                    AppConstants.ques[questionnumber].question,
+                    // Questions are translation keys (quiz_q.* in assets/lang).
+                    localizeDigits(
+                        AppConstants.ques[questionnumber].question.tr()),
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                           fontWeight: FontWeight.w600,
@@ -142,7 +149,8 @@ class _QuizState extends State<Quiz> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
-                                    "Congratulations !!!",
+                                    'quiz.congrats'.tr(),
+                                    textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineMedium
@@ -151,7 +159,12 @@ class _QuizState extends State<Quiz> {
                                         ),
                                   ),
                                   Text(
-                                    "You Have Scored $_score out of ${AppConstants.ques.length}",
+                                    'quiz.scored'.tr(namedArgs: {
+                                      'score': localizeDigits(_score),
+                                      'total': localizeDigits(
+                                          AppConstants.ques.length),
+                                    }),
+                                    textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleLarge
@@ -173,7 +186,7 @@ class _QuizState extends State<Quiz> {
                                         Navigator.of(context)
                                             .pop(); // Go back to explore
                                       },
-                                      child: const Text("Go Back"))
+                                      child: Text('common.go_back'.tr()))
                                 ],
                               ),
                             ),
@@ -189,9 +202,9 @@ class _QuizState extends State<Quiz> {
                   borderRadius: BorderRadius.circular(40),
                 ),
               ),
-              child: const Text(
-                "Continue",
-                style: TextStyle(
+              child: Text(
+                'common.continue'.tr(),
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
@@ -265,7 +278,7 @@ class _QuizState extends State<Quiz> {
               width: 10,
             ),
             Text(
-              option,
+              localizeDigits(option),
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ],

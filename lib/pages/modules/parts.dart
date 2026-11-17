@@ -1,6 +1,8 @@
 // ignore_for_file: unused_element
 
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -11,6 +13,7 @@ import 'package:learn/utils/responsive_screen_provider.dart';
 
 import '../../utils/const_dimensions.dart';
 import 'parts_test.dart';
+import 'package:learn/widgets/language_button.dart';
 
 void main() {
   runApp(
@@ -71,11 +74,12 @@ class _PartsPagePageState extends State<PartsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          AppConstants.parts,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          'titles.body'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
+          const LanguageButton(),
           IconButton(
             icon: const Icon(Icons.assignment),
             onPressed: () {
@@ -148,7 +152,7 @@ class _PartsPagePageState extends State<PartsPage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        cards[topCardIndex].name,
+                        tw('body', cards[topCardIndex].name),
                         style: const TextStyle(
                             fontSize: 50, fontWeight: FontWeight.bold),
                       ),
@@ -164,7 +168,8 @@ class _PartsPagePageState extends State<PartsPage> {
                               size: 40,
                             ),
                             onPressed: () {
-                              AppFunctions().readName(cards[topCardIndex].name);
+                              AppFunctions()
+                                  .readName(tw('body', cards[topCardIndex].name));
                             },
                           ),
                           const SizedBox(

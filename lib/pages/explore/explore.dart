@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import '../../favorite_page_provider.dart';
 
 import '../../utils/const_dimensions.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/widgets/language_button.dart';
 
 // Explore Page
 class ExplorePage extends StatelessWidget {
@@ -17,6 +19,11 @@ class ExplorePage extends StatelessWidget {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
+          // Language menu (the page has no title, like upstream).
+          const SliverAppBar(
+            floating: true,
+            actions: [LanguageButton()],
+          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
@@ -73,7 +80,8 @@ class ExplorePage extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        AppConstants.modules[index].name,
+                                        'modules.${module.name}.name'.tr(),
+                                        textAlign: TextAlign.center,
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineMedium!
@@ -90,7 +98,8 @@ class ExplorePage extends StatelessWidget {
                                         ),
                                       ),
                                       Text(
-                                        AppConstants.modules[index].description,
+                                        'modules.${module.name}.desc'.tr(),
+                                        textAlign: TextAlign.center,
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyMedium!
@@ -110,9 +119,9 @@ class ExplorePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Positioned(
+                              PositionedDirectional(
                                 top: 8,
-                                right: 8,
+                                end: 8,
                                 child: Container(
                                   width: 40,
                                   height: 40,
@@ -197,7 +206,8 @@ class ExplorePage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Drawing Board',
+                                    'titles.drawing'.tr(),
+                                    textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineMedium!
@@ -214,7 +224,8 @@ class ExplorePage extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    'Drawing Board for Artist Kids!',
+                                    'explore.drawing_desc'.tr(),
+                                    textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium!
@@ -234,9 +245,9 @@ class ExplorePage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Positioned(
+                          PositionedDirectional(
                             top: 8,
-                            right: 8,
+                            end: 8,
                             child: Container(
                               width: 40,
                               height: 40,

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:learn/utils/route/route_constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:learn/utils/localization.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({
@@ -44,9 +46,12 @@ class _LandingPageState extends State<LandingPage> {
                       fontSize: width / 19,
                     ),
                     child: AnimatedTextKit(
+                      // A new key when the language changes restarts the
+                      // animation with the translated word.
+                      key: ValueKey(context.locale.languageCode),
                       animatedTexts: [
                         ColorizeAnimatedText(
-                          'Learn',
+                          'learn'.tr(),
                           textStyle: TextStyle(
                               fontSize: width / 12,
                               fontWeight: FontWeight.w900),
@@ -67,7 +72,8 @@ class _LandingPageState extends State<LandingPage> {
               Center(
                 child: SizedBox(
                   child: Text(
-                    "Learning Made Easy",
+                    'learning'.tr(),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w400, fontSize: width / 18),
                   ),
@@ -103,7 +109,7 @@ class _LandingPageState extends State<LandingPage> {
                       );
                     },
                     child: Text(
-                      "Get started",
+                      'start'.tr(),
                       style: TextStyle(
                           color: Colors.white,
                           fontSize:
@@ -111,6 +117,20 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                   ),
                 ),
+              ),
+              const Padding(padding: EdgeInsets.only(top: 30)),
+              // Choose the app language.
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 12,
+                runSpacing: 8,
+                children: [
+                  for (final locale in AppLang.supported)
+                    ElevatedButton(
+                      onPressed: () => AppLang.setLanguage(context, locale),
+                      child: Text(AppLang.nativeNames[locale.languageCode]!),
+                    ),
+                ],
               ),
             ],
           ),
